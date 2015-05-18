@@ -66,6 +66,7 @@
                 <show_tags>false</show_tags>
                 <show_wishlist>false</show_wishlist>
                 <show_downloadable_products>false</show_downloadable_products>
+                <show_oauth_customer_tokens>false</show_oauth_customer_tokens>
 				<show_newsletter>false</show_newsletter>
 			</settings>
 			<reorder>	
@@ -79,7 +80,8 @@
                 <position_tags>80</position_tags>
                 <position_wishlist>90</position_wishlist>
                 <position_downloadable_products>100</position_downloadable_products>
-				<position_newsletter>110</position_newsletter>
+                <position_oauth_customer_tokens>110</position_oauth_customer_tokens>
+				<position_newsletter>120</position_newsletter>
             </reorder>
         </customernavigation>
     </default>    
