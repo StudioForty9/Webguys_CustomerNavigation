@@ -21,43 +21,43 @@ class Webguys_CustomerNavigation_Block_Account_Navigation extends Mage_Customer_
     /**
      * @inheritDoc
      */
-    public function getLinks()
+	public function getLinks()
     {
-        $preLinks = $this->_links;
-        $tmpLinks = array();
-        $this->_links = array();
+    	$preLinks = $this->_links;
+    	$tmpLinks = array();
+		$this->_links = array();
 
         $order = 150;
-        foreach ($preLinks as $link) {
+		foreach ($preLinks as $link) {
             $isConfiguredLink = $this->isConfiguredLink($link);
             // Add any core links configured to show in the module
-            if ($isConfiguredLink && $this->isConfiguredToShow($link)) {
+			if ($isConfiguredLink && $this->isConfiguredToShow($link)) {
                 $position = $this->getConfigPosition($link);
-                $tmpLinks[$position] = $link;
-            }
+				$tmpLinks[$position] = $link;
+			}
             // Add any custom links added via layout XML
             if (!$isConfiguredLink) {
                 $tmpLinks[$order] = $link;
                 $order += 10;
             }
-        }
+		}
 
         // Sort the new list
-        ksort($tmpLinks);
+		ksort($tmpLinks);
 
-        foreach ($tmpLinks as $position => $link) {
+		foreach ($tmpLinks as $position => $link) {
             $isConfiguredLink = $this->isConfiguredLink($link);
             // Add any core links configured to show in the module
-            if ($isConfiguredLink && $this->isConfiguredToShow($link)) {
-                $this->addLink($link->getName(), $link->getPath(), $link->getLabel());
-            }
+			if ($isConfiguredLink) {
+				$this->addLink($link->getName(), $link->getPath(), $link->getLabel());
+			}
             // Add any custom links added via layout XML
-            if (!$isConfiguredLink) {
+            else {
                 $this->addLink($link->getName(), $link->getPath(), $link->getLabel());
             }
-        }
+		}
 
-        return $this->_links;
+		return $this->_links;
     }
 
     /**
